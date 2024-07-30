@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { Dispatch, useState } from 'react'
 
 import { CreateTodoForm } from '@/client/components/CreateTodoForm'
 import Filter from '@/client/components/Filter'
@@ -20,7 +20,7 @@ import { TodoList } from '@/client/components/TodoList'
  */
 
 const Index = () => {
-  const [statuses, setStatuses] = useState(['completed', 'pending'])
+  const [statuses, setStatuses] = useState<string[]>(['completed', 'pending'])
   return (
     <main className="mx-auto w-[480px] pt-12">
       <div className="rounded-12 bg-white p-8 shadow-sm">
@@ -29,7 +29,7 @@ const Index = () => {
         </h1>
 
         <div className="pt-10">
-          <Filter statuses={statuses} setStatuses={setStatuses} />
+          <Filter setStatuses={setStatuses} />
         </div>
 
         <div className="pt-10">

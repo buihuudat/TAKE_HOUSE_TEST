@@ -1,9 +1,15 @@
+import type { Dispatch, SetStateAction } from 'react'
+
 import React, { useState } from 'react'
 
-const Filter = ({ setStatuses }) => {
+interface IFilterProps {
+  setStatuses: (statuses: string[]) => void
+}
+
+const Filter = ({ setStatuses }: IFilterProps) => {
   const [statusSelected, setStatusSelected] = useState('all')
 
-  const handleChangeStatus = (status) => {
+  const handleChangeStatus = (status: string) => {
     if (status === 'all') {
       setStatuses(['completed', 'pending'])
     } else {
